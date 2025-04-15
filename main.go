@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-var tmpl = template.Must(template.ParseFiles("templates/login.html"))
+var tmpl = template.Must(template.ParseFiles("templates/index.html"))
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
@@ -15,7 +15,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		username := r.FormValue("username")
 		password := r.FormValue("password")
 
-		if username == "admin" && password == "admin123" {
+		if username == "mpr" && password == "Mpr001" {
 			http.Redirect(w, r, "/welcome", http.StatusSeeOther)
 		} else {
 			tmpl.Execute(w, "Invalid credentials. Try again.")
